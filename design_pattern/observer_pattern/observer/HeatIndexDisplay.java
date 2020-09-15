@@ -1,6 +1,6 @@
-package observer;
+package design_pattern.observer_pattern.observer;
 
-import subject.Subject;
+import design_pattern.observer_pattern.subject.Subject;
 
 public class HeatIndexDisplay implements Observer, DisplayElement {
   private float temperature;

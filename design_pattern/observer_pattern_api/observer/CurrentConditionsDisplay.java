@@ -1,8 +1,8 @@
-package observer;
+package design_pattern.observer_pattern_api.observer;
 
 import java.util.Observable;
 import java.util.Observer;
-import observable.WeatherData;
+import design_pattern.observer_pattern_api.observable.WeatherData;
 
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
   Observable observable;

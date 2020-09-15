@@ -1,7 +1,7 @@
-package test;
+package design_pattern.observer_pattern.test;
 
-import observer.*;
-import subject.WeatherData;
+import design_pattern.observer_pattern.observer.*;
+import design_pattern.observer_pattern.subject.*;
 
 public class WeatherStation {
   public static void main(String args[]) {

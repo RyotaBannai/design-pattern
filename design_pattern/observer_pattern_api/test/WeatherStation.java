@@ -1,7 +1,7 @@
-package test;
+package design_pattern.observer_pattern_api.test;
 
-import observer.*;
-import observable.WeatherData;
+import design_pattern.observer_pattern_api.observer.*;
+import design_pattern.observer_pattern_api.observable.*;
 
 public class WeatherStation {
   public static void main(String args[]) {

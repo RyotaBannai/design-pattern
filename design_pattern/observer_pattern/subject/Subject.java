@@ -1,6 +1,6 @@
-package subject;
+package design_pattern.observer_pattern.subject;
 
-import observer.Observer;
+import design_pattern.observer_pattern.observer.Observer;
 
 public interface Subject {
   public void registerObserver(Observer o);
