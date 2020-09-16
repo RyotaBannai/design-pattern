@@ -6,6 +6,7 @@ import design_pattern.command.command.NoCommand;
 public class SimpleRemoteController {
   Command[] onCommands;
   Command[] offCommands;
+  Command undoCommand;
 
   public SimpleRemoteController() {
     onCommands = new Command[7];
@@ -16,6 +17,8 @@ public class SimpleRemoteController {
       command = noCommand;
     for (Command command : offCommands)
       command = noCommand;
+
+    undoCommand = noCommand;
   }
 
   public void setCommand(int slot, Command onCommand, Command offCommand) {
@@ -25,10 +28,16 @@ public class SimpleRemoteController {
 
   public void onButtonWasPressed(int slot) {
     onCommands[slot].execute();
+    undoCommand = onCommands[slot];
   }
 
   public void offButtonWasPressed(int slot) {
     offCommands[slot].execute();
+    undoCommand = onCommands[slot];
+  }
+
+  public void undoButtonWasPressed() {
+    undoCommand.undo();
   }
 
   public String toStirng() {
