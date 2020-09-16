@@ -7,9 +7,8 @@ import design_patterns.adaptor.duck.adaptor.TurkeyAdapter;
 public class DuckTestDrive {
   public static void main(String[] args) {
     MallardDuck duck = new MallardDuck();
-
-    WildTurkey turkey = new WildTurkey();
-    Duck turkeyAdapter = new TurkeyAdapter(turkey);
+    WildTurkey turkey = new WildTurkey(); // Turkey は アダプティ interface
+    Duck turkeyAdapter = new TurkeyAdapter(turkey); // アダプタは target interface を実装(Duck)
     turkey.gobble();
     turkey.fly();
 
