@@ -1,6 +1,8 @@
 package design_patterns.facade.sub_system;
 
 public class DVDPlayer {
+  String movie;
+
   public void on() {
   }
 
@@ -13,7 +15,8 @@ public class DVDPlayer {
   public void pause() {
   }
 
-  public void play() {
+  public void play(String movie) {
+    this.movie = movie;
   }
 
   public void setSurroundAudio() {
