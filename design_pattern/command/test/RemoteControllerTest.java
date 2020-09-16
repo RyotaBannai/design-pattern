@@ -9,7 +9,7 @@ public class RemoteControllerTest {
   public static void main(String[] args) {
     SimpleRemoteController remote = new SimpleRemoteController(); // invoker
     Light light = new Light(); // receiver
-    LightOnCommand lightOn = new LightOnCommand(light);
+    LightOnCommand lightOn = new LightOnCommand(light); // pass receiver to command
     remote.setCommand(lightOn);
     remote.buttonWasPressed();
   }
