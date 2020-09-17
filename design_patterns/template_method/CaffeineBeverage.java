@@ -2,11 +2,13 @@ package design_patterns.template_method;
 
 public abstract class CaffeineBeverage {
   // Template Method
-  final void prepareRecipe() {
+  public final void prepareRecipe() {
     boilWater();
     brew();
     pourInCup();
-    addCondiments();
+    if (customerWantsCondiments()) {
+      addCondiments();
+    }
   }
 
   // Concrete Operation1
@@ -24,4 +26,9 @@ public abstract class CaffeineBeverage {
 
   // Primitive Operation2
   public abstract void addCondiments();
+
+  // hook
+  boolean customerWantsCondiments() {
+    return true;
+  }
 }
