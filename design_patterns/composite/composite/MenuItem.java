@@ -1,27 +1,56 @@
 package design_patterns.composite.composite;
 
+import java.util.Iterator;
+
+import design_patterns.composite.iterator.NullIterator;
+
 public class MenuItem extends MenuComponent {
+  String name;
+  String description;
+  double price;
+  boolean vegetarian;
+
+  public MenuItem(String name, String description, double price, boolean vegetarian) {
+    /** leaf */
+
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.vegetarian = vegetarian;
+  }
+
   @Override
   public String getName() {
-    // TODO Auto-generated method stub
-    return null;
+    return name;
   }
 
   @Override
   public String getDescription() {
-    // TODO Auto-generated method stub
-    return null;
+    return description;
   }
 
   @Override
   public Double getPrice() {
-    // TODO Auto-generated method stub
-    return null;
+    return price;
+  }
+
+  @Override
+  public boolean isVegetarian() {
+    return vegetarian;
   }
 
   @Override
   public void print() {
-    // TODO Auto-generated method stub
+    System.out.print(getName());
+    if (isVegetarian()) {
+      System.out.print("(v)");
+    }
+    System.out.println("、" + getPrice());
+    System.out.println(" -- " + getDescription());
+  }
 
+  @Override
+  public Iterator createIterator() {
+    return new NullIterator();
   }
 }

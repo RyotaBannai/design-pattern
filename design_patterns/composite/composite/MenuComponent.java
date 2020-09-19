@@ -1,5 +1,7 @@
 package design_patterns.composite.composite;
 
+import java.util.Iterator;
+
 public abstract class MenuComponent {
   /** 操作メソッド と呼ばれる */
   public String getName() {
@@ -31,7 +33,11 @@ public abstract class MenuComponent {
     throw new UnsupportedOperationException();
   };
 
-  public void getChild(int i) {
+  public MenuComponent getChild(int i) {
     throw new UnsupportedOperationException();
   };
+
+  public Iterator createIterator() {
+    throw new UnsupportedOperationException();
+  }
 }
