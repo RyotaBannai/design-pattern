@@ -1,87 +1,70 @@
 package design_patterns.state;
 
+import design_patterns.state.state.*;
+
 public class GumballMachine {
   /** Possible states */
-  final static int SOLD_OUT = 0;
-  final static int NO_QUARTER = 1;
-  final static int HAS_QUARTER = 2;
-  final static int SOLD = 3;
+  State soldOutState;
+  State soldState;
+  State noQuarterState;
+  State hasQuarterState;
 
-  int state = SOLD_OUT;
+  State state = soldOutState;
   int count = 0;
 
-  public GumballMachine(int count) {
-    this.count = count;
-    if (count > 0) {
-      state = NO_QUARTER;
+  public GumballMachine(int numberGumballs) {
+    soldOutState = new SoldOutState(this);
+    soldState = new SoldState(this);
+    noQuarterState = new NoQuarterState(this);
+    hasQuarterState = new HasQuarterState(this);
+
+    this.count = numberGumballs;
+    if (this.count > 0) {
+      state = noQuarterState;
     }
   }
 
-  /** Actions - 遷移 */
   public void insertQuarter() {
-    if (state == HAS_QUARTER) {
-      System.out.println("すでに投入されています");
-    } else if (state == NO_QUARTER) {
-      state = HAS_QUARTER;
-      System.out.println("25 cent を投入しました");
-    } else if (state == SOLD_OUT) {
-      System.out.println("ガムは売り切れです");
-    } else if (state == SOLD) {
-      System.out.println("ガムを出しています。完了までお待ちください。");
-    }
+    state.insertQuarter();
   }
 
   public void ejectQuarter() {
-    if (state == HAS_QUARTER) {
-      state = NO_QUARTER;
-      System.out.println("25 cent を返却しました");
-    } else if (state == NO_QUARTER) {
-      System.out.println("まだ 25 cent を投入していません");
-    } else if (state == SOLD_OUT) {
-      System.out.println("ガムは売り切れです。まだ 25 cent を投入していません");
-    } else if (state == SOLD) {
-      System.out.println("ガムを出しています。25 cent を返却できません");
-    }
+    state.ejectQuarter();
   }
 
   public void turnCrank() {
-    if (state == HAS_QUARTER) {
-      state = SOLD;
-      System.out.println("ガムを購入しました");
-    } else if (state == NO_QUARTER) {
-      System.out.println("先に 25 cent を投入して下さい");
-    } else if (state == SOLD_OUT) {
-      System.out.println("ガムは売り切れです");
-    } else if (state == SOLD) {
-      System.out.println("２回回してもガムは１つしか出ません");
-      dispense();
-    }
+    state.turnCrank();
   }
 
-  public void dispense() {
-    /* ガムを販売状態・売り切れに戻すために呼び出す */
-    if (state == HAS_QUARTER) { // 起こりえないがエラーのときの処理
-      System.out.println("ガムは売り切れです");
-    } else if (state == NO_QUARTER) { // 起こりえないがエラーのときの処理
-      System.out.println("まず支払いが必要です");
-    } else if (state == SOLD_OUT) { // 起こりえないがエラーのときの処理
-      System.out.println("ガムは売り切れです");
-    } else if (state == SOLD) {
-      System.out.println("ガムがスロットから転がり出てきます");
+  public void releaseBall() {
+    System.out.println("ガムが出てきます");
+    if (count != 0) {
       count -= 1;
-      if (count > 0) {
-        state = NO_QUARTER;
-      } else {
-        System.out.println("ガムが売れ切れました");
-      }
     }
   }
 
-  public void refill(int count) {
-    this.count += count;
+  public void setState(State state) { // 他のオブジェクトが machine を他の状態へ遷移させることができる
+    this.state = state;
+  }
+
+  public State getSoldOutStateState() {
+    return soldOutState;
+  }
+
+  public State getSoldState() {
+    return soldState;
+  }
+
+  public State getNoQuarterState() {
+    return noQuarterState;
+  }
+
+  public State getHasQuarterState() {
+    return hasQuarterState;
   }
 
   public int getCount() {
-    return state;
+    return count;
   }
+
 }
