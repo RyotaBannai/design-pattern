@@ -40,6 +40,12 @@
 
 - 2 つ以上のパターンを組み合わせ、繰り返し起こる問題や汎用的な問題を解決する
 
+#### Builder
+
+- インスタンスを組み上げていくためのメソッドは Builder class がすべて提供する
+- Director が組み上げ方を指示する（クライアントからその方法を隠蔽）
+- Template method pattern では処理の流れを Super class が行い、Builder pattern では Director が行う。
+
 ### 設計原則
 
 - `Principle of Least Knowledge` : オブジェクト間のやりとりを少数の身近な「友達」だけに減らすようにする
