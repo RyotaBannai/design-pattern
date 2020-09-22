@@ -58,6 +58,12 @@
 
 - 多数のオブジェクト間の調整を行わなければならない時に使用. ロジックは Mediator に記述.
 
+#### Memento
+
+- カプセル化の破壊に陥ることなく保存と復元を行う
+- `Narrow interface` は `Caretaker`, `Wide interface` は `Originator` で使われる.
+- `Caretaker` が `Originator` に `Memento` から Snapshot の作成, または `Memento` からの復元を伝える.
+
 ### 設計原則
 
 - `Principle of Least Knowledge` : オブジェクト間のやりとりを少数の身近な「友達」だけに減らすようにする
