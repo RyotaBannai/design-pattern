@@ -1,7 +1,7 @@
-package design_patterns.Memento.test;
+package design_patterns.memento.test;
 
-import design_patterns.Memento.Gamer;
-import design_patterns.Memento.Memento;
+import design_patterns.memento.Gamer;
+import design_patterns.memento.Memento;
 import java.util.stream.IntStream;
 
 public class Main {

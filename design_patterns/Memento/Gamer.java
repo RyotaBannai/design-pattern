@@ -1,4 +1,4 @@
-package design_patterns.Memento;
+package design_patterns.memento;
 
 import java.util.ArrayList;
 import java.util.Random;
