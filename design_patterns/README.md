@@ -46,6 +46,10 @@
 - Director が組み上げ方を指示する（クライアントからその方法を隠蔽）
 - Template method pattern では処理の流れを Super class が行い、Builder pattern では Director が行う。
 
+#### Visitor
+
+- データ構造と処理を分離する　（データ構造の要素に対する処理を切り出して、 Visitor 役に任せる）
+
 ### 設計原則
 
 - `Principle of Least Knowledge` : オブジェクト間のやりとりを少数の身近な「友達」だけに減らすようにする
