@@ -11,6 +11,6 @@ public class ProgramNode extends Node {
   }
 
   public String toString() {
-    return "[ " + commandListNode + "]";
+    return "[program" + commandListNode + "]";
   }
 }

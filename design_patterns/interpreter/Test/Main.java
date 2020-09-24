@@ -13,7 +13,7 @@ public class Main {
     try {
       BufferedReader reader = new BufferedReader(new FileReader("./design_patterns/interpreter/program/program.txt"));
       String text;
-      while ((text = reader.readLine()) != null) {
+      while ((text = reader.readLine()) != null) { // read command line by line
         System.out.println("text = \"" + text + "\"");
         Node node = new ProgramNode();
         node.parse(new Context(text));

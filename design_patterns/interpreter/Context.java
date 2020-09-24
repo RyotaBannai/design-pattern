@@ -32,6 +32,7 @@ public class Context {
   }
 
   public int currentNumber() throws ParseException {
+    // used by RepeatCommandNode
     int number = 0;
     try {
       number = Integer.parseInt(currentToken);

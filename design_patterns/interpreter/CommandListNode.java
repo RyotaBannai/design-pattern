@@ -15,8 +15,13 @@ public class CommandListNode extends Node {
         break;
       } else {
         Node commandNode = new CommandNode();
+        commandNode.parse(context);
         list.add(commandNode);
       }
     }
+  }
+
+  public String toString() {
+    return list.toString();
   }
 }

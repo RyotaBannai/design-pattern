@@ -64,6 +64,10 @@
 - `Narrow interface` は `Caretaker`, `Wide interface` は `Originator` で使われる.
 - `Caretaker` が `Originator` に `Memento` から Snapshot の作成, または `Memento` からの復元を伝える.
 
+#### Interpreter
+
+- コマンドの定義は `Backus-Naur Form (BNF)` で記述すると良い
+
 ### 設計原則
 
 - `Principle of Least Knowledge` : オブジェクト間のやりとりを少数の身近な「友達」だけに減らすようにする

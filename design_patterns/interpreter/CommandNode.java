@@ -6,13 +6,12 @@ public class CommandNode extends Node {
 
   public void parse(Context context) throws ParseException {
     if (context.currentToken().equals("repeat")) {
-      node = new RepeatCommand();
+      node = new RepeatCommandNode();
       node.parse(context);
     } else {
       node = new PrimitiveNode();
       node.parse(context);
     }
-
   }
 
   public String toString() {
