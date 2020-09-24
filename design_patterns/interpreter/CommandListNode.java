@@ -1,0 +1,22 @@
+package design_patterns.interpreter;
+
+import java.util.*;
+
+// <program list> ::= <command>* end
+public class CommandListNode extends Node {
+  private ArrayList list = new ArrayList();
+
+  public void parse(Context context) throws ParseException {
+    while (true) {
+      if (context.currentToken() == null) {
+        throw new ParseException("Missing 'end'");
+      } else if (context.currentToken().equals("end")) {
+        context.skipToken("end");
+        break;
+      } else {
+        Node commandNode = new CommandNode();
+        list.add(commandNode);
+      }
+    }
+  }
+}
